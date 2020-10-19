@@ -17,7 +17,7 @@ import {
 // });
 
 const todo = createSlice({
-  name: "todosReducer",
+  name: "todos",
   initialState: [],
   reducers: {
     add: (state, action) => {

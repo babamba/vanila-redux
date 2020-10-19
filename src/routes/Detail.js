@@ -1,24 +1,16 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
-const Detail = ({ todo }) => {
-  console.log("todo : ", todo);
+const Detail = ({ match }) => {
+  const findTodo = useSelector((state) =>
+    state.find((todoItem) => todoItem.id === parseInt(match.params.id))
+  );
+
   return (
     <>
-      <h1>{todo?.text}</h1>
-      <h5> created at : {todo?.id}</h5>
+      <h1>{findTodo?.text}</h1>
+      <h5> created at : {findTodo?.id}</h5>
     </>
   );
 };
-
-const mapStateToProps = (state, ownProps) => {
-  const {
-    match: {
-      params: { id },
-    },
-  } = ownProps;
-
-  return { todo: state.find((todo) => todo.id === parseInt(id)) };
-};
-
-export default connect(mapStateToProps)(Detail);
+export default Detail;
