@@ -46,7 +46,7 @@ const paintTodos = () => {
 store.subscribe(paintTodos);
 
 const dispatchDeleteTodo = (e) => {
-  store.dispatch(deleteTodo(parseInt(e.target.parentNode.id)));
+  store.dispatch(deleteTodo(e.target.parentNode.id));
 };
 const dispatchAddTodo = (text) => {
   store.dispatch(addTodo(text));
