@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 const Detail = ({ match }) => {
   const findTodo = useSelector((state) =>
-    state.find((todoItem) => todoItem.id === parseInt(match.params.id))
+    state.todos.find((todoItem) => todoItem.id === parseInt(match.params.id))
   );
 
   return (

@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Todo from "../components/Todo";
-import { add } from "../store";
+import { add } from "../store/todo";
 
 function Home(props) {
   const dispatch = useDispatch();
-  const todos = useSelector((state) => state);
-
+  const { todos } = useSelector((state) => state);
   const [text, setText] = useState("");
   const onChange = (e) => {
     setText(e.target.value);
